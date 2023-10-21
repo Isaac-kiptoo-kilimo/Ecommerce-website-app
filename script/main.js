@@ -25,16 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
       listItem.textContent = `${item.title} - $${item.price}`;
       cartItems.push(item);
       cartDisplay.appendChild(listItem);
-      totalPrice += item.price;
-      totalQuantity++;
+      totalPrice += item.price* item.quantity;
+      
+      console.log(totalPrice);
+      totalQuantity+=item.quantity;
+      console.log((totalQuantity));
     });
 
     // Update the total amount
     totalAmount.textContent = `Total: $${totalPrice.toFixed(2)}`;
+    console.log(totalAmount)
   }
 
   function addToCart(product) {
-    cart.push(product);
+    const existingItem = cart.find((item) => item.id === product.id);
+    if(existingItem){
+      existingItem.quantity+=product.quantity
+    }else{
+      product.quantity=1;
+      cart.push(product);
+    };
+    
     updateCart();
   }
 
@@ -83,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h5 class="card-title">${product.title}</h5>
           <p class="card-text">${product.description}</p>
           <div class="product-price-container">
-            <h3 class="product-price">$${product.price}</h3>
+            <h3 class="product-price" id="modalPrice">$${product.price}</h3>
             <div class="quantity">
               <i class="fa-solid fa-minus fa-2x text-primary" id="decrementQuantity"></i>
               <span class="output-input m-4 fa-2x" id="quantityOutput">1</span>
@@ -112,8 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const incrementQuantity = document.getElementById('incrementQuantity');
     const quantityOutput = document.getElementById('quantityOutput');
     
-    let quantity = 1;
+    const modalPrice = modalContent.querySelector('#modalPrice');
 
+    let quantity = 1;
+    let price = product.price;
     // Add an event listener to the closing icon
     closeModalIcon.addEventListener('click', () => {
       productModal.style.display = 'none';
@@ -124,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (quantity > 1) {
         quantity--;
         quantityOutput.textContent = quantity;
+        modalPrice.textContent = `$${(price * quantity).toFixed(2)}`;
       }
     });
 
@@ -131,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     incrementQuantity.addEventListener('click', () => {
       quantity++;
       quantityOutput.textContent = quantity;
+      modalPrice.textContent = `$${(price * quantity).toFixed(2)}`;
     });
   }
   
