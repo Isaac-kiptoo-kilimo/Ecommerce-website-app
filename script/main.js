@@ -7,45 +7,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalAmount = document.getElementById('total-amount');
   const clearCartButton = document.getElementById('clear-cart');
 
-
-  let cartItems = [];
-
   function updateCart() {
-    // Clear existing items in the cart
-    cartDisplay.innerHTML = '';
-    cartItems = [];
+    cartDisplay.querySelector('ul').innerHTML = '';
 
-    // Initialize the total price and quantity
     let totalPrice = 0;
     let totalQuantity = 0;
 
-    // Iterate through the cart and display each item
     cart.forEach((item) => {
       const listItem = document.createElement('li');
-      listItem.textContent = `${item.title} - $${item.price}`;
-      cartItems.push(item);
-      cartDisplay.appendChild(listItem);
-      totalPrice += item.price* item.quantity;
-      
-      console.log(totalPrice);
-      totalQuantity+=item.quantity;
-      console.log((totalQuantity));
+      const itemTotalPrice = item.price * item.quantity;
+      listItem.textContent = `${item.title} - $${itemTotalPrice.toFixed(2)}`;
+      cartDisplay.querySelector('ul').appendChild(listItem);
+      totalPrice += itemTotalPrice;
+      totalQuantity += item.quantity;
     });
 
-    // Update the total amount
     totalAmount.textContent = `Total: $${totalPrice.toFixed(2)}`;
-    console.log(totalAmount)
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   function addToCart(product) {
-    const existingItem = cart.find((item) => item.id === product.id);
-    if(existingItem){
-      existingItem.quantity+=product.quantity
-    }else{
-      product.quantity=1;
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity += product.quantity;
+    } else {
       cart.push(product);
-    };
-    
+    }
     updateCart();
   }
 
@@ -53,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       let data = await fetch(url);
       let response = await data.json();
-      console.log(response);
 
       response.forEach((product) => {
         let description = product.description;
@@ -63,21 +49,37 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="${product.image}" class="card-img-top img-fluid product-image" alt="...">
             <div class="card-body">
               <h5 class="card-title">${product.category}</h5>
-              <h5 class="card-title">${title.length > 20 ? description.substring(0, 20).concat('...') : title}</h5>
-              <p class="card-text">${description.length > 20 ? description.substring(0, 20).concat('...') : title}</p>
+              <h5 class="card-title">${product.title}</h5>
+              <p class="card-text">${product.description}</p>
               <div class="product-price-container">
-                <h3 class="product-price">$${product.price}</h3>
+                <h3 class="product-price">$${product.price.toFixed(2)}</h3>
+                <div class="quantity-controls">
+                  <i class="fa-solid fa-minus fa-2x text-primary"></i>
+                  <span class="output-input m-4 fa-2x">1</span>
+                  <i class="fa-solid fa-plus fa-2x text-primary"></i>
+                </div>
               </div>
+              <button class="btn btn-primary add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
             </div>
           </div>
         `;
-      });
 
-      const productImages = document.querySelectorAll('.product-image');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+        const productImages = document.querySelectorAll('.product-image');
+        const quantityControls = document.querySelectorAll('.quantity-controls');
 
-      productImages.forEach((image, index) => {
-        image.addEventListener('click', () => {
-          openModal(response[index]);
+        addToCartButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            const quantity = parseInt(quantityControls[index].querySelector('.output-input').textContent, 10);
+            const selectedProduct = { ...response[index], quantity };
+            addToCart(selectedProduct);
+          });
+        });
+
+        productImages.forEach((image, index) => {
+          image.addEventListener('click', () => {
+            openModal(response[index]);
+          });
         });
       });
     } catch (err) {
@@ -94,45 +96,37 @@ document.addEventListener('DOMContentLoaded', () => {
           <h5 class="card-title">${product.title}</h5>
           <p class="card-text">${product.description}</p>
           <div class="product-price-container">
-            <h3 class="product-price" id="modalPrice">$${product.price}</h3>
-            <div class="quantity">
+            <h3 class="product-price" id="modalPrice">$${product.price.toFixed(2)}</h3>
+            <div class="quantity-controls">
               <i class="fa-solid fa-minus fa-2x text-primary" id="decrementQuantity"></i>
               <span class="output-input m-4 fa-2x" id="quantityOutput">1</span>
-              <i class="fa-solid fa-plus  fa-2x text-primary" id="incrementQuantity"></i>
+              <i class="fa-solid fa-plus fa-2x text-primary" id="incrementQuantity"></i>
             </div>
           </div>
+          <button class="btn btn-primary add-to-cart-button" id="add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
         </div>
-       <div class="d-flex justify-content-between mx-4">
-       <i id="closeModalIcon" class="fa-regular fa-3x text-primary fa-circle-xmark"></i>
-       <button class=" btn btn-primary" id="add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus  text-white "></i></button>
-       </div>
+        <div class="d-flex justify-content-between mx-4">
+          <i id="closeModalIcon" class="fa-regular fa-3x text-primary fa-circle-xmark"></i>
+        </div>
       </div>
     `;
-    const addToCartButton = modalContent.querySelector('#add-to-cart-button');
-        addToCartButton.addEventListener('click', () => {
-          addToCart(product);
-          productModal.style.display='none';
-          // alert('Product added to cart!')
-        });
-
-
     productModal.style.display = 'block';
 
     const closeModalIcon = document.getElementById('closeModalIcon');
     const decrementQuantity = document.getElementById('decrementQuantity');
     const incrementQuantity = document.getElementById('incrementQuantity');
     const quantityOutput = document.getElementById('quantityOutput');
-    
-    const modalPrice = modalContent.querySelector('#modalPrice');
+    const addToCartButton = modalContent.querySelector('#add-to-cart-button');
 
     let quantity = 1;
     let price = product.price;
-    // Add an event listener to the closing icon
-    closeModalIcon.addEventListener('click', () => {
-      productModal.style.display = 'none';
+
+    incrementQuantity.addEventListener('click', () => {
+      quantity++;
+      quantityOutput.textContent = quantity;
+      modalPrice.textContent = `$${(price * quantity).toFixed(2)}`;
     });
 
-    // Event listener for decreasing quantity
     decrementQuantity.addEventListener('click', () => {
       if (quantity > 1) {
         quantity--;
@@ -141,14 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Event listener for increasing quantity
-    incrementQuantity.addEventListener('click', () => {
-      quantity++;
-      quantityOutput.textContent = quantity;
-      modalPrice.textContent = `$${(price * quantity).toFixed(2)}`;
+    addToCartButton.addEventListener('click', () => {
+      const selectedProduct = { ...product, quantity };
+      addToCart(selectedProduct);
+      productModal.style.display = 'none';
+    });
+
+    closeModalIcon.addEventListener('click', () => {
+      productModal.style.display = 'none';
     });
   }
-  
+
   clearCartButton.addEventListener('click', () => {
     cart.length = 0;
     updateCart();
