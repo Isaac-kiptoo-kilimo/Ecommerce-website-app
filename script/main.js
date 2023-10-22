@@ -75,23 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let title = product.title;
         products.innerHTML += `
           <div class="card" style="width: 18rem;">
+         
             <img src="${product.image}"  class="shop-img card-img-top img-fluid product-image" alt="...">
             <div class="card-body">
               
-              <h5 class="card-title">${product.title}</h5>
+            <h5 class="card-title">${title.length > 20 ? description.substring(0, 20).concat('...') : title}</h5>
               
               <div class="product-price-container">
                 <h3 class="product-price">$${product.price.toFixed(2)}</h3>
                 <div class="quantity-controls">
-                  <i class="fa-solid fa-minus  text-primary"></i>
-                  <span class="output-input m-2 ">1</span>
-                  <i class="fa-solid fa-plus text-primary"></i>
+                  <i class="fa-solid fa-minus fa-2x  text-warning"></i>
+                  <span class="output-input m-2 fa-2x ">1</span>
+                  <i class="fa-solid fa-plus fa-2x text-warning"></i>
                 </div>
               </div>
               
             </div>
             <div class="cart-btn mx-5  my-3">
-            <button class="btn btn-primary add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
+            <button class="btn btn-warning add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
             </div>
           </div>
         `;
@@ -121,25 +122,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openModal(product) {
+    let description = product.description;
     modalContent.innerHTML = `
       <div class="card-modal" style="width: 100%;">
+      <h5 class="card-title">${product.title}</h5>
         <img src="${product.image}" class="card-img-top img-fluid" alt="...">
         <div class="card-body">
           <h5 class="card-title">${product.category}</h5>
-          <h5 class="card-title">${product.title}</h5>
-          <p class="card-text">${product.description}</p>
+          
+          <p class="card-text">${description.length > 100 ? description.substring(0, 100).concat('...') : title}</p>
           <div class="product-price-container">
             <h3 class="product-price" id="modalPrice">$${product.price.toFixed(2)}</h3>
-            <div class="quantity-controls">
-              <i class="fa-solid fa-minus fa-2x text-primary" id="decrementQuantity"></i>
-              <span class="output-input m-4 fa-2x" id="quantityOutput">1</span>
-              <i class="fa-solid fa-plus fa-2x text-primary" id="incrementQuantity"></i>
+            <div class="quantity-controls d-flex align-items-center">
+              <button class="btn btn-warning "><i class="fa-solid fa-minus fa-2x text-white" id="decrementQuantity"></i></button>
+              <span class="output-input m-4 fa-3x " id="quantityOutput">1</span>
+              <button class="btn btn-warning" id="incrementQuantity"><i class="fa-solid fa-plus fa-2x text-white" ></i></button>
             </div>
           </div>
-          <button class="btn btn-primary add-to-cart-button" id="add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
+          
         </div>
         <div class="d-flex justify-content-between mx-4">
-          <i id="closeModalIcon" class="fa-regular fa-3x text-primary fa-circle-xmark"></i>
+          <i id="closeModalIcon" class="fa-regular fa-3x text-warning fa-circle-xmark"></i>
+          <button class="btn btn-warning add-to-cart-button" id="add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
         </div>
       </div>
     `;
