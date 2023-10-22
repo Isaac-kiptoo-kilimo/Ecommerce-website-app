@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const itemTotalPrice = item.price * item.quantity;
       listItem.innerHTML = `
       <div class="card-display p-3" style="width: 30%">
-        <img src="${item.image}" alt="image">
+        <img src="${item.image}"  alt="image">
         <h3>${item.title}</h3>
         <h4>${item.category}</h4>
         <p>${item.description}</p>
@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let description = product.description;
         let title = product.title;
         products.innerHTML += `
-          <div class="card" style="width: 18rem;">
-            <img src="${product.image}" class="card-img-top img-fluid product-image" alt="...">
+          <div class="card" style="width: 18em;">
+            <img src="${product.image}"  class="card-img-top img-fluid product-image" alt="...">
             <div class="card-body">
               <h5 class="card-title">${product.category}</h5>
               <h5 class="card-title">${product.title}</h5>
-              <p class="card-text">${product.description}</p>
+              
               <div class="product-price-container">
                 <h3 class="product-price">$${product.price.toFixed(2)}</h3>
                 <div class="quantity-controls">
