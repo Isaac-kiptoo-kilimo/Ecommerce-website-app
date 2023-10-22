@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartDisplay = document.getElementById('cart-display');
   const totalAmount = document.getElementById('total-amount');
   const clearCartButton = document.getElementById('clear-cart');
+ 
 
   function updateCart() {
     cartDisplay.querySelector('.display-order').innerHTML = '';
@@ -73,21 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let description = product.description;
         let title = product.title;
         products.innerHTML += `
-          <div class="card" style="width: 18em;">
-            <img src="${product.image}"  class="card-img-top img-fluid product-image" alt="...">
+          <div class="card" style="width: 18rem;">
+            <img src="${product.image}"  class="shop-img card-img-top img-fluid product-image" alt="...">
             <div class="card-body">
-              <h5 class="card-title">${product.category}</h5>
+              
               <h5 class="card-title">${product.title}</h5>
               
               <div class="product-price-container">
                 <h3 class="product-price">$${product.price.toFixed(2)}</h3>
                 <div class="quantity-controls">
-                  <i class="fa-solid fa-minus fa-2x text-primary"></i>
-                  <span class="output-input m-4 fa-2x">1</span>
-                  <i class="fa-solid fa-plus fa-2x text-primary"></i>
+                  <i class="fa-solid fa-minus  text-primary"></i>
+                  <span class="output-input m-2 ">1</span>
+                  <i class="fa-solid fa-plus text-primary"></i>
                 </div>
               </div>
-              <button class="btn btn-primary add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
+              
+            </div>
+            <div class="cart-btn mx-5  my-3">
+            <button class="btn btn-primary add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
             </div>
           </div>
         `;
@@ -179,6 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cart.length = 0;
     updateCart();
   });
+
+
 
   fetchProducts('https://fakestoreapi.com/products');
 });
