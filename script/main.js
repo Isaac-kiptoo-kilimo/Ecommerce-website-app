@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPrice = 0;
     let totalQuantity = 0;
 
-    cart.forEach((item) => {
+    cart.forEach((item,index) => {
       const listItem = document.createElement('div');
       const itemTotalPrice = item.price * item.quantity;
       listItem.innerHTML = `
@@ -22,19 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>${item.title}</h3>
         <h4>${item.category}</h4>
         <p>${item.description}</p>
-        <h3>$${itemTotalPrice.toFixed(2)}</h3>
-        <div><button class="btn btn-outline-danger">Delete</button>
+        <p>Qnty: ${item.quantity}</p>
+        <h3>Amount :  $${itemTotalPrice.toFixed(2)}</h3>
+        <div><button class="btn btn-danger" data-item-index="${index}" >Delete</button>
         </div>
       </div>
        `;
       cartDisplay.querySelector('.display-order').appendChild(listItem);
       totalPrice += itemTotalPrice;
       totalQuantity += item.quantity;
+
+      
     });
 
     totalAmount.textContent = `Total: $${totalPrice.toFixed(2)}`;
     localStorage.setItem('cart', JSON.stringify(cart));
+
+    const deleteButtons = document.querySelectorAll('.btn-danger');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const itemIndex = event.target.getAttribute('data-item-index');
+      deleteItemFromCart(itemIndex);
+    });
+  });
+
   }
+
+  function deleteItemFromCart(itemIndex) {
+    cart.splice(itemIndex, 1);
+    updateCart();
+  }
+  
 
   function addToCart(product) {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -83,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const quantity = parseInt(quantityControls[index].querySelector('.output-input').textContent, 10);
             const selectedProduct = { ...response[index], quantity };
             addToCart(selectedProduct);
+            alert(`You have added ${selectedProduct.title} to the cart`)
           });
         });
 
