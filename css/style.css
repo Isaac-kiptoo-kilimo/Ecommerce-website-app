@@ -141,3 +141,32 @@ body{
     right: 10px;
     cursor: pointer;
   } */
+
+  .dis-orders{
+    width: 100%;
+  }
+
+  .display-order{
+    width: 100%;
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 20px; */
+  }
+
+  .dis-orders>div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    background-color: yellow;
+  }
+
+  .card-display {
+    background-color: white;
+    width: 50%;
+  }
+  
+
+  .card-display>img{
+    width: 50%;
+  }

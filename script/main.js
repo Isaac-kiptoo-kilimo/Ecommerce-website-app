@@ -8,16 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearCartButton = document.getElementById('clear-cart');
 
   function updateCart() {
-    cartDisplay.querySelector('ul').innerHTML = '';
+    cartDisplay.querySelector('.display-order').innerHTML = '';
 
     let totalPrice = 0;
     let totalQuantity = 0;
 
     cart.forEach((item) => {
-      const listItem = document.createElement('li');
+      const listItem = document.createElement('div');
       const itemTotalPrice = item.price * item.quantity;
-      listItem.textContent = `${item.title} - $${itemTotalPrice.toFixed(2)}`;
-      cartDisplay.querySelector('ul').appendChild(listItem);
+      listItem.innerHTML = `
+      <div class="card-display p-3" style="width: 30%">
+        <img src="${item.image}" alt="image">
+        <h3>${item.title}</h3>
+        <h4>${item.category}</h4>
+        <p>${item.description}</p>
+        <h3>$${itemTotalPrice.toFixed(2)}</h3>
+        <div><button class="btn btn-outline-danger">Delete</button>
+        </div>
+      </div>
+       `;
+      cartDisplay.querySelector('.display-order').appendChild(listItem);
       totalPrice += itemTotalPrice;
       totalQuantity += item.quantity;
     });
