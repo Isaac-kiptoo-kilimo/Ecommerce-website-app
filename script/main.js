@@ -80,9 +80,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoriesBtn=document.querySelector('.categories-btn');
   const dropDownMenu=document.querySelector('.dropdown-menu');
 
-  categoriesBtn.addEventListener('click',()=>{
-    dropDownMenu.style.display='block'
+
+
+  categoriesBtn.addEventListener(
+    "mouseenter",
+    () => {
+  
+      dropDownMenu.style.display='block';
+  
+  
+    },
+    false,
+  );
+
+  dropDownMenu.addEventListener('mouseleave',()=>{
+
+    dropDownMenu.style.display=''
   })
+
 
   const url_='https://fakestoreapi.com/products'
   async function fetchProducts(url) {
