@@ -77,6 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
   }
 
+  const categoriesBtn=document.querySelector('.categories-btn');
+  const dropDownMenu=document.querySelector('.dropdown-menu');
+
+  categoriesBtn.addEventListener('click',()=>{
+    dropDownMenu.style.display='block'
+  })
+
   const url_='https://fakestoreapi.com/products'
   async function fetchProducts(url) {
     try {
@@ -200,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cart.length = 0;
     updateCart();
   });
+
 
 
   fetchProducts(url_);
