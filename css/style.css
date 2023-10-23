@@ -266,3 +266,14 @@ img {
     border-top: 1px dashed lighten(var(--dark-color), 50%);
     z-index: -1;
 }
+
+.category-sub-head{
+    font-size: 40px;
+    font-weight: 600;
+    background-color: #FFD333;
+    margin: 20px;
+    padding: 10px;
+    text-decoration: underline;
+  
+    text-transform: uppercase;
+}

@@ -21,17 +21,11 @@ async function fetchJelewery() {
               
               <div class="product-price-container">
                 <h3 class="product-price">$${product.price.toFixed(2)}</h3>
-                <div class="quantity-controls">
-                  <i class="fa-solid fa-minus fa-2x  text-warning"></i>
-                  <span class="output-input m-2 fa-2x ">1</span>
-                  <i class="fa-solid fa-plus fa-2x text-warning"></i>
-                </div>
+              
               </div>
               
             </div>
-            <div class="cart-btn mx-5  my-3">
-            <button class="btn btn-warning add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
-            </div>
+           
           </div>
         `;
 
@@ -65,20 +59,13 @@ async function fetchElectronics() {
                 
               <h5 class="card-title">${title.length > 20 ? description.substring(0, 20).concat('...') : title}</h5>
                 
-                <div class="product-price-container">
+                    <div class="product-price-container">
                   <h3 class="product-price">$${product.price.toFixed(2)}</h3>
-                  <div class="quantity-controls">
-                    <i class="fa-solid fa-minus fa-2x  text-warning"></i>
-                    <span class="output-input m-2 fa-2x ">1</span>
-                    <i class="fa-solid fa-plus fa-2x text-warning"></i>
-                  </div>
-                </div>
-                
-              </div>
-              <div class="cart-btn mx-5  my-3">
-              <button class="btn btn-warning add-to-cart-button">Add to cart<i class="fa-solid fa-cart-plus text-white"></i></button>
-              </div>
-            </div>
+                  
+                    </div>
+                 </div>
+            </div>                
+           
           `;
   
   
@@ -93,3 +80,86 @@ async function fetchElectronics() {
   
   fetchElectronics();
   
+
+
+  const menClothings=document.querySelector('.mens-clothing')
+let category3= "men's clothing";
+  async function fetchMensClothing(){
+    const url=`https://fakestoreapi.com/products/category/${category3}`;
+
+    try{
+
+        const data=await fetch(url);
+        const response=await data.json();
+
+        
+        response.forEach((product)=>{
+            let title=product.title;
+            let description=product.description;
+            menClothings.innerHTML+=`
+            <div class="card mx-3" style="width: 18rem;">
+           
+              <img src="${product.image}"  class="shop-img card-img-top img-fluid product-image" alt="...">
+              <div class="card-body">
+                
+              <h5 class="card-title">${title.length > 20 ? description.substring(0, 20).concat('...') : title}</h5>
+                
+                    <div class="product-price-container">
+                  <h3 class="product-price">$${product.price.toFixed(2)}</h3>
+                  
+                    </div>
+                 </div>
+            </div>                
+           
+            `;
+        })
+    }
+    catch(err){
+        console.error(err);
+    }
+
+  };
+
+  fetchMensClothing();
+
+
+
+  const womensClothings=document.querySelector('.womens-clothing')
+  let category4= "women's clothing";
+
+  async function fetchWomensClothing(){
+
+    const url=`https://fakestoreapi.com/products/category/${category4}`
+
+    try{
+        const data=await fetch(url);
+        const response=await data.json();
+        
+        response.forEach((product)=>{
+            let title=product.title;
+            let description=product.description;
+            womensClothings.innerHTML+=`
+            <div class="card mx-3" style="width: 18rem;">
+           
+              <img src="${product.image}"  class="shop-img card-img-top img-fluid product-image" alt="...">
+              <div class="card-body">
+                
+              <h5 class="card-title">${title.length > 20 ? description.substring(0, 20).concat('...') : title}</h5>
+                
+                    <div class="product-price-container">
+                  <h3 class="product-price">$${product.price.toFixed(2)}</h3>
+                  
+                    </div>
+                 </div>
+            </div>               
+            `;
+
+        })
+
+    }catch(err){
+        console.error(err);
+    };
+
+  };
+
+  fetchWomensClothing();
