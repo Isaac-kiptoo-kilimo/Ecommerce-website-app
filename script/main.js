@@ -4,19 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalContent = document.querySelector('.modal-content');
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartDisplay = document.getElementById('cart-display');
+  const TotalQty=document.getElementById('quality')
   const totalAmount = document.getElementById('total-amount');
   const clearCartButton = document.getElementById('clear-cart');
   const newCart=document.querySelector('.cart')
   const mainContain=document.querySelector('.main-contain')
   const containerCart=document.querySelector('.container-cart ')
- 
+  const btnCart=document.querySelector('#cart-icon');
+  const cart1=document.querySelector('.cart');
+  const btnClose=document.querySelector('#cart-close');
+  
 
-  newCart.addEventListener('click',()=>{
+  btnCart.addEventListener('click',()=>{
+    cart1.classList.add('cart-active');
+  });
+  
+  btnClose.addEventListener('click',()=>{
+    cart1.classList.remove('cart-active');
+  });
+
+  // newCart.addEventListener('click',()=>{
     
-    mainContain.style.display='none'
-    containerCart.style.display='block';
+  //   mainContain.style.display='none'
+  //   containerCart.style.display='block';
 
-  })
+  // })
   function updateCart() {
     cartDisplay.querySelector('.display-orders').innerHTML = '';
 
@@ -28,27 +40,30 @@ document.addEventListener('DOMContentLoaded', () => {
       listItem.classList.add="card-cart"
       const itemTotalPrice = item.price * item.quantity;
       listItem.innerHTML = `
-      <div class="card-cart">
-      <img src="${item.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${item.title}</h5>
-          <p class="card-text">${item.category}</p>
-          <p class="card-text">${item.description}</p>
-          <p>Qnty: ${item.quantity}</p>
-          <h3>Amount :  $${itemTotalPrice.toFixed(2)}</h3>
-          <div><button class="btn btn-danger" data-item-index="${index}" >Delete</button>
-          </div>
-        </div>
-        </div>
+            <div class="cart-box">
+                <img src="${item.image}" class="cart-img">
+                  <div class="detail-box">
+                   <div class="cart-food-title">${item.title}</div>
+                    <div class="price-box">
+                      <div class="cart-price">Amount :  $${itemTotalPrice.toFixed(2)}</div>
+                                 
+                      </div>
+                      <p class="cart-quantity">Qnty: ${item.quantity}</p>
+                    </div>
+                    <button class="btn btn-danger cart-remove" data-item-index="${index}" >Delete</button>
+                           
+             </div>
        `;
       cartDisplay.querySelector('.display-orders').appendChild(listItem);
       totalPrice += itemTotalPrice;
       totalQuantity += item.quantity;
+   
 
       
     });
 
     totalAmount.textContent = `Total: $${totalPrice.toFixed(2)}`;
+    TotalQty.textContent = `${totalQuantity}`;
     localStorage.setItem('cart', JSON.stringify(cart));
 
     const deleteButtons = document.querySelectorAll('.btn-danger');

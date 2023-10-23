@@ -30,7 +30,7 @@
               
                   <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     
-                      <div>
+                      <div class="cat-holder">
                         
                        <button class="btn btn-light categories-btn">
                         Categories
@@ -57,12 +57,44 @@
                           <a href="#contact" class=" mx-5 nav-item nav-link active">Contact</a>
                         
                       </div>
-                      <div class="navbar-nav ml-auto py-0 d-sm-block d-lg-block">
+                      <div class="navbar-nav display-cart ml-auto py-0 d-sm-block d-lg-block">
                         
-                          <div class="btn px-0 ml-3 cart">
-                              <i class="fas fa-shopping-cart fa-2x text-warning"></i>
-                              <span class="badge text-white fa-1x border border-warning rounded-circle" style="padding-bottom: 2px;">0</span>
+                         
+                          <div class="box" id="cart-icon">
+                            
+                            <i class="fas fa-shopping-cart fa-2x text-warning" ></i>
+                            <span class="badge text-white fa-1x border border-warning rounded-circle" style="padding-bottom: 2px;" id="quality">0</span> 
                           </div>
+                    
+                          <div class="cart">
+                            <div class="cart-title">Cart Items</div>
+                            <div class="cart-content">
+                    
+                            </div>
+                            <div id="cart-display" class="dis-orders ">
+    
+    
+                              <div class="display-orders" >   
+                                
+                            </div>
+                            
+                          </div>
+                            
+                         
+
+                          <p id="total-amount">Total: $0.00</p>
+                            
+                           <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
+                    
+                          
+                          <i id="cart-close" class="fa-regular fa-3x text-warning fa-circle-xmark"></i>
+                    
+                          </div>
+                         
+
+                        
+
+                        </div>
                       </div>
                   </div>
               </nav>
@@ -92,9 +124,10 @@
        
     </div>
 </div>
+  <!--  products-->
     <div class="container-fluid ">
 
-      <!--  products-->
+    
      
       <div class="container-fluid main-contain  pt-5 pb-3">
         <h2 class="section-title  text-uppercase mx-xl-5 mb-4"><span class=" pr-3" id="products">Featured Products</span></h2>
@@ -148,20 +181,7 @@
     </div>
   </div>
 </div>
-<!-- cart -->
-<div class="container-cart container">
-  <h2>Shopping Cart</h2>
-  <div id="cart-display" class="dis-orders ">
-    
-    
-      <div class="display-orders" >   
-        
-    </div>
-    
-  </div>
-  <p id="total-amount">Total: $0.00</p>
-    <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
-</div>
+
 
  <!-- footer -->
 <div
