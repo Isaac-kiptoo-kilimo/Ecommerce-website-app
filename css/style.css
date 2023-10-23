@@ -27,6 +27,7 @@ body{
     /* padding: 10px; */
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .h1, h2, h3 {
@@ -184,9 +185,7 @@ body{
     background-color: rgba(0, 0, 0, 0.7);
   }
 
-  .modal-content {
-  
-    
+  .modal-content {    
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -198,113 +197,32 @@ body{
     max-width: 450px; /* Adjust the max-width to control the modal size */
     /* text-align: center; */
   }
-
-  .card-modal{
-     /* background-color: red;  */
-  }
-
-  /* .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  } */
-
-  .dis-orders{
-    width: 100%;
-  }
-
-  .display-order{
-    width: 100%;
-
-  }
-
-  .display-order>div{
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    margin: 10px;
+.container-cart{
+    /* background-color: green; */
+    /* width: 100%; */
     
-  }
+}
+.display-orders{
+    width: 100%; 
+    
+    display: grid;
+    flex-wrap: wrap;
+    /* object-fit: cover; */
+    gap: 30px;
+}
 
-  .card-display {
+
+.card-cart{
     background-color: white;
-    width: 100%;
-  }
+    width: 300px;
+    padding: 10px;
+}
+
   
 
-  .card-display>img{
-    width: 50%;
-  }
 
 
-  
-.product-item {
-    transition: .5s;
-}
 
-.product-action {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: .5s;
-}
-
-.product-action a.btn {
-    position: relative;
-    margin: 0 3px;
-    margin-top: 100px;
-    opacity: 0;
-}
-
-.product-item:hover {
-    box-shadow: 0 0 30px #DDDDDD;
-}
-
-.product-item:hover .product-action {
-    background: rgba(256, 256, 256, .7);
-}
-
-.product-item:hover .product-action a.btn:first-child {
-    opacity: 1;
-    margin-top: 0;
-    transition: .3s 0s;
-}
-
-.product-item:hover .product-action a.btn:nth-child(2) {
-    opacity: 1;
-    margin-top: 0;
-    transition: .3s .05s;
-}
-
-.product-item:hover .product-action a.btn:nth-child(3) {
-    opacity: 1;
-    margin-top: 0;
-    transition: .3s .1s;
-}
-
-.product-item:hover .product-action a.btn:nth-child(4) {
-    opacity: 1;
-    margin-top: 0;
-    transition: .3s .15s;
-}
-
-.product-item .product-img img  {
-    transition: .5s;
-}
-
-.product-item:hover .product-img img {
-    transform: scale(1.2);
-}
-
-.product-item .btn:hover {
-    color: blue !important;
-}
 
 #header-carousel img {
     width: 100%;

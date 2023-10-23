@@ -6,30 +6,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartDisplay = document.getElementById('cart-display');
   const totalAmount = document.getElementById('total-amount');
   const clearCartButton = document.getElementById('clear-cart');
+  const newCart=document.querySelector('.cart')
+  const mainContain=document.querySelector('.main-contain')
+  const containerCart=document.querySelector('.container-cart ')
  
 
+  newCart.addEventListener('click',()=>{
+    
+    mainContain.style.display='none'
+    containerCart.style.display='block';
+
+  })
   function updateCart() {
-    cartDisplay.querySelector('.display-order').innerHTML = '';
+    cartDisplay.querySelector('.display-orders').innerHTML = '';
 
     let totalPrice = 0;
     let totalQuantity = 0;
 
     cart.forEach((item,index) => {
       const listItem = document.createElement('div');
+      listItem.classList.add="card-cart"
       const itemTotalPrice = item.price * item.quantity;
       listItem.innerHTML = `
-      <div class="card-display p-3" style="width: 30%">
-        <img src="${item.image}"  alt="image">
-        <h3>${item.title}</h3>
-        <h4>${item.category}</h4>
-        <p>${item.description}</p>
-        <p>Qnty: ${item.quantity}</p>
-        <h3>Amount :  $${itemTotalPrice.toFixed(2)}</h3>
-        <div><button class="btn btn-danger" data-item-index="${index}" >Delete</button>
+      <div class="card-cart">
+      <img src="${item.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${item.title}</h5>
+          <p class="card-text">${item.category}</p>
+          <p class="card-text">${item.description}</p>
+          <p>Qnty: ${item.quantity}</p>
+          <h3>Amount :  $${itemTotalPrice.toFixed(2)}</h3>
+          <div><button class="btn btn-danger" data-item-index="${index}" >Delete</button>
+          </div>
         </div>
-      </div>
+        </div>
        `;
-      cartDisplay.querySelector('.display-order').appendChild(listItem);
+      cartDisplay.querySelector('.display-orders').appendChild(listItem);
       totalPrice += itemTotalPrice;
       totalQuantity += item.quantity;
 
@@ -65,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
   }
 
+  const url_='https://fakestoreapi.com/products'
   async function fetchProducts(url) {
     try {
       let data = await fetch(url);
@@ -189,6 +202,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-
-  fetchProducts('https://fakestoreapi.com/products');
+  fetchProducts(url_);
 });

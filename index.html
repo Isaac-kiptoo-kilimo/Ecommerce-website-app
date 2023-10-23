@@ -35,12 +35,12 @@
                          
                         
                       </div>
-                      <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                      <div class="navbar-nav ml-auto py-0 d-sm-block d-lg-block">
                         
-                          <a href="./pages/order.html" class="btn px-0 ml-3">
+                          <div class="btn px-0 ml-3 cart">
                               <i class="fas fa-shopping-cart fa-2x text-warning"></i>
                               <span class="badge text-white fa-1x border border-warning rounded-circle" style="padding-bottom: 2px;">0</span>
-                          </a>
+                          </div>
                       </div>
                   </div>
               </nav>
@@ -73,7 +73,7 @@
 
       
      
-      <div class="container-fluid  pt-5 pb-3">
+      <div class="container-fluid main-contain  pt-5 pb-3">
         <h2 class="section-title  text-uppercase mx-xl-5 mb-4"><span class=" pr-3" id="products">Featured Products</span></h2>
         <div class="row px-xl-1">
             <div class=" products col-lg-3 col-md-4 col-sm-6 pb-1">
@@ -87,6 +87,29 @@
             </div>
           
         </div>
+       <div class="container m-4">
+        <h2 class="m-3 text-warning">Contact Us</h2>
+        <form action="https://getform.io/f/aac2b7d1-ac83-4fc0-8ac1-359e1bfcb2d9" method="POST">
+            <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                    <input type="text"name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <textarea cols="20" rows="4" type="text" name="message" class="form-control border-0" placeholder="Tell us something" ></textarea>
+                </div>
+              
+                <div class="col-12 col-sm-6">
+                    
+                
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                </div>
+            </div>
+        </form>  
+       </div>    
     </div>
     
       
@@ -102,46 +125,84 @@
   </div>
 </div>
 
-<div class="container">
-  <div id="cart-display" class="dis-orders">
-    <h2>Shopping Cart</h2>
-    <div class="display-order">
-     
-
+<div class="container-cart container">
+  <h2>Shopping Cart</h2>
+  <div id="cart-display" class="dis-orders ">
+    
+    
+      <div class="display-orders" >   
+        
     </div>
-    <p id="total-amount">Total: $0.00</p>
-    <button id="clear-cart">Clear Cart</button>
+    
   </div>
+  <p id="total-amount">Total: $0.00</p>
+    <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
 </div>
- 
-<div class="container-fluid bg-dark text-white mt-5 pt-5">
-  <div class="row px-xl-5 pt-5">
-      <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-          <h5 class="text-warning text-uppercase mb-4">Get In Touch</h5>
-          
-          <p class="mb-2"><i class="fa fa-map-marker-alt text-primary text-warning me-2 mr-3"></i>123 Street, Nairobi, Kenya</p>
-          <p class="mb-2"><i class="fa fa-envelope text-primary mr-3 text-warning me-2"></i>info@example.com</p>
-          <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3 text-warning me-2"></i>+254725 445 475</p>
-      </div>
-      <div class="col-lg-8 col-md-12">
-          <div class="row">
-              <div class="col-md-4 mb-5">
-                  <h5 class="text-warning text-uppercase mb-4">Quick Shop</h5>
-                  <div class="d-flex flex-column  justify-content-start">
-                      <a class="text-white mb-2 text-decoration-none" href="#"><i class="fa fa-angle-right mr-2 mx-2"></i>Home</a>
-                      <a class="text-white mb-2 text-decoration-none " href="#"><i class="fa fa-angle-right mr-2 mx-2"></i>Our Shop</a>
-                      
-                      <a class="text-white mb-2 text-decoration-none" href="#"><i class="fa fa-angle-right mr-2 mx-2"></i>Shopping Cart</a>
-                     
-                      
-                  </div>
-              </div>
-           
-              
+
+<div
+      class="container-fluid bg-dark text-light footer pt-5 mt-5"
+      data-wow-delay="0.1s"
+    >
+      <div class="container p-5">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <h4 class="text-warning mb-4 ">Address</h4>
+            <p class="mb-2">
+              <i class="fa fa-map-marker-alt me-3"></i>123 Street, Nairobi,
+              Kenya
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-phone-alt me-3"></i>+254 7345 67890
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-envelope me-3"></i>karibushop12@gmail.com
+            </p>
+            <div class="d-flex pt-2">
+              <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
           </div>
+          <div class="col-lg-4 col-md-6">
+            <h4 class=" mb-4 text-warning">Available hours</h4>
+            <h6 class="text-light">Monday - Friday:</h6>
+            <p class="mb-4">09.00PM - 09.00 PM</p>
+            <h6 class="text-light">Saturday - Sunday:</h6>
+            <p class="mb-0">09.00 AM - 12.00 PM</p>
+          </div>
+          <div class="col-lg-4 col-md-6 ">
+            <h4 class="text-warning mb-4">Categories</h4>
+            <a class="btn btn-link text-decoration-none text-white" href=""> </a>
+            <a class="btn btn-link text-decoration-none text-white" href="">Men Fashion</a>
+            <a class="btn btn-link text-decoration-none text-white" href="">Women Fashion</a>
+            <a class="btn btn-link text-decoration-none text-white" href="">Children Fashion</a>
+          </div>
+        </div>
       </div>
-     
-  </div>
+      <div class="container">
+        <div class="copyright">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy;
+              <a class="border-bottom text-decoration-none text-warning" href="#">karibu shop website</a>, All
+              Right Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              Designed By
+              <a class="border-bottom text-decoration-none text-warning" href="https://htmlcodex.com"
+                >Isotech -software Company</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./script/main.js"></script>
   </body>
 </html>
