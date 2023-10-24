@@ -7,13 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const TotalQty=document.getElementById('quality')
   const totalAmount = document.getElementById('total-amount');
   const clearCartButton = document.getElementById('clear-cart');
-  const newCart=document.querySelector('.cart')
-  const mainContain=document.querySelector('.main-contain')
-  const containerCart=document.querySelector('.container-cart ')
   const btnCart=document.querySelector('#cart-icon');
   const cart1=document.querySelector('.cart');
   const btnClose=document.querySelector('#cart-close');
-  
+  const navIcon=document.querySelector('.nav-icon')
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+  const navbarDisplay = document.querySelector('#nabarDisplay');
+
+
+
+navIcon.addEventListener('click', () => {
+  navbarDisplay.style.display= 'block';
+});
+
 
   btnCart.addEventListener('click',()=>{
     cart1.classList.add('cart-active');
@@ -129,9 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="product-price-container">
                 <h3 class="product-price">$${product.price.toFixed(2)}</h3>
                 <div class="quantity-controls">
-                  <i class="fa-solid fa-minus fa-2x  text-warning"></i>
+                
                   <span class="output-input m-2 fa-2x ">1</span>
-                  <i class="fa-solid fa-plus fa-2x text-warning"></i>
+                  
                 </div>
               </div>
               

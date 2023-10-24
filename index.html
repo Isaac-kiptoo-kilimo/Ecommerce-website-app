@@ -15,93 +15,94 @@
     <title>Karibu Eccomerce Shop Website</title>
   </head>
   <body>
-    <div class="container-fluid top-nav bg-dark mb-2">
-      <div class="row px-xl-5">
-          <div class="col-lg-4 d-none d-lg-block">
-              <a class="btn nav-categories d-flex align-items-center justify-content-between w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
-                  <h4 class="text-dark  m-0"><i class="fa fa-bars mx-2 d-none  mr-2"></i></h4>
-                  <h4>Karibu shop Ecc website </h4>
-             
-              </a>
-              
-          </div>
-          <div class="col-lg-8">
-              <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
-              
-                  <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    
-                      <div class="cat-holder">
-                        
-                       <button class="btn btn-light categories-btn">
-                        Categories
-                       </button>
-                       <ul class="dropdown-menu" >
-                        <li><a class="dropdown-item my-1" href="./categories.html">All Categories</a></li>
-                        <hr>
-                        <li><a class="dropdown-item my-1" href="./pages/electronics.html">Electronics</a></li>
-                        <hr>
-                        <li><a class="dropdown-item my-1" href="./pages/jelewery.html">Jelewery</a></li>
-                        <hr>
-                        <li><a class="dropdown-item my-1" href="./pages/mensclothing.html">Mens' Clothings</a></li>
-                        <hr>
-                        <li><a class="dropdown-item my-1" href="./pages/womenclothing.html">Women' Clothings</a></li>
-                      </ul>
-                      </div>
+    
+    <div class="container-fluid  mb-2">
+     <div class="top-nav bg-dark sticky-top py-2">
+      <div class="row  ">
+        <div class="col-lg-4  nav-holder">
+            <div class="btn nav-categories d-flex align-items-center justify-content-between "  style="height: 65px; ">
+            <i class="fa fa-bars  text-light nav-icon  "></i>
+                <h4 class="logo-title">Karibu shop Ecc website </h4>
+           
+            </div>
+            
+        </div>
+        <div class="col-lg-8">
+            <nav class="navbar  navbar-expand-lg  navbar-dark py-3 py-lg-0 px-0" id="nabarDisplay">
+            
+                <div class="navbar-collapse nav-column justify-content-between" id="navbarCollapse">
+                  
+                    <div class="cat-holder">
                       
-                      <div class="navbar-nav mr-auto py-0">
-                          <a href="index.html" class=" mx-5 nav-item nav-link active">Home</a>
-                         
-                        
-                          <a href="#products" class="nav-item nav-link">Shop</a>
-                        
-                          <a href="#contact" class=" mx-5 nav-item nav-link active">Contact</a>
-                        
-                      </div>
-                      <div class="navbar-nav display-cart ml-auto py-0 d-sm-block d-lg-block">
-                        
-                         
-                          <div class="box" id="cart-icon">
-                            
-                            <i class="fas fa-shopping-cart fa-2x text-warning" ></i>
-                            <span class="badge text-white fa-1x border border-warning rounded-circle" style="padding-bottom: 2px;" id="quality">0</span> 
-                          </div>
+                     <button class="btn btn-light categories-btn">
+                      Categories
+                     </button>
+                     <ul class="dropdown-menu" >
+                      <li><a class="dropdown-item my-1" href="./categories.html">All Categories</a></li>
+                      <hr>
+                      <li><a class="dropdown-item my-1" href="./pages/electronics.html">Electronics</a></li>
+                      <hr>
+                      <li><a class="dropdown-item my-1" href="./pages/jelewery.html">Jelewery</a></li>
+                      <hr>
+                      <li><a class="dropdown-item my-1" href="./pages/mensclothing.html">Mens' Clothings</a></li>
+                      <hr>
+                      <li><a class="dropdown-item my-1" href="./pages/womenclothing.html">Women' Clothings</a></li>
+                    </ul>
+                    </div>
                     
-                          <div class="cart">
-                            <div class="cart-title">Cart Items</div>
-                            <div class="cart-content">
-                    
-                            </div>
-                            <div id="cart-display" class="dis-orders ">
-    
-    
-                              <div class="display-orders" >   
-                                
-                            </div>
-                            
-                          </di> 
-
-                          <p id="total-amount">Total: $0.00</p>
-                            
-                           <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
-                    
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="index.html" class=" mx-5 nav-item nav-link active">Home</a>
+                       
+                      
+                        <a href="#products" class="mx-5 nav-item nav-link">Shop</a>
+                      
+                        <a href="#contact" class=" mx-5 nav-item nav-link active">Contact</a>
+                      
+                    </div>
+                    <div class="navbar-nav display-cart ml-auto py-0 d-sm-block d-lg-block">
+                      
+                       
+                        <div class="box" id="cart-icon">
                           
-                          <i id="cart-close" class="fa-regular fa-3x text-warning fa-circle-xmark"></i>
-                    
-                          </div>
-                         
-
-                        
-
+                          <i class="fas fa-shopping-cart fa-2x text-warning" ></i>
+                          <span class="badge text-white fa-1x border border-warning rounded-circle" style="padding-bottom: 2px;" id="quality">0</span> 
                         </div>
+                  
+                        <div class="cart">
+                          <div class="cart-title">Cart Items</div>
+                          <div class="cart-content">
+                  
+                          </div>
+                          <div id="cart-display" class="dis-orders ">
+  
+  
+                            <div class="display-orders" >   
+                              
+                          </div>
+                          
+                        </di> 
+
+                        <p id="total-amount">Total: $0.00</p>
+                          
+                         <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
+                  
+                        
+                        <i id="cart-close" class="fa-regular fa-3x text-warning fa-circle-xmark"></i>
+                  
+                        </div>
+                       
+
+                      
+
                       </div>
-                  </div>
-              </nav>
-          </div>
-      </div>
-  </div>
-  <!-- Hero components -->
-  <div class="container-fluid my-5 py-3">
-    <div class="row">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+     </div>
+      <div class="hero w-100 ">
+      <div class="row ">
         <div class="col-lg-12">
             <div id="header-carousel" class="carousel  mb-30 mb-lg-0" data-ride="carousel">
               
@@ -111,7 +112,7 @@
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
                                 <h1 class="display-4 text-white mb-3 ">Children Fashion</h1>
-                                <p class="mx-md-5 px-5 ">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                <p class="mx-md-5 px-5 ">Come shop with us and get the best Fashions and electronics.</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 " href="#products">Shop Now</a>
                             </div>
                         </div>
@@ -121,140 +122,128 @@
         </div>
        
     </div>
-</div>
-  <!--  products-->
-    <div class="container-fluid ">
-
-    
-     
-      <div class="container-fluid main-contain  pt-5 pb-3">
-        <h2 class="section-title  text-uppercase mx-xl-5 mb-4"><span class=" pr-3" id="products">Featured Products</span></h2>
-        <div class="row px-xl-1">
-            <div class=" products col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item card bg-light mb-4">
-                    <div class="product-img overflow-hidden">
-                       
-                        
-                    </div>
-                  
-                </div>
-            </div>
-          
-        </div>
-        <!-- contact -->
-       <div class="container m-4" id="contact">
-        <h2 class="m-3 text-warning">Contact Us</h2>
-        <form action="https://getform.io/f/aac2b7d1-ac83-4fc0-8ac1-359e1bfcb2d9" method="POST">
-            <div class="row g-3">
-                <div class="col-12 col-sm-6">
-                    <input type="text"name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <textarea cols="20" rows="4" type="text" name="message" class="form-control border-0" placeholder="Tell us something" ></textarea>
-                </div>
-              
-                <div class="col-12 col-sm-6">
-                    
+      </div>
+    <div class="container-fluid main-contain  pt-5 pb-3">
+      <h2 class="section-title  text-uppercase mx-xl-5 mb-4"><span class=" pr-3" id="products">Featured Products</span></h2>
+      <div class="row px-xl-1">
+          <div class=" products col-lg-3 col-md-4 col-sm-6 pb-1">
+              <div class="product-item card bg-light mb-4">
+                  <div class="product-img overflow-hidden">
+                     
+                      
+                  </div>
                 
-                <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                </div>
-            </div>
-        </form>  
-       </div>    
-    </div>
-    
-      
-    </div>
- <!-- modal -->
-<div id="productModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closeModal" > </i></span>
-    <div id="modalProduct" class="product-details">
-      
-      
+              </div>
+          </div>
+        
+      </div>
+      <!-- contact -->
+     <div class="container " id="contact">
+      <h2 class="m-3 text-warning">Contact Us</h2>
+      <form action="https://getform.io/f/aac2b7d1-ac83-4fc0-8ac1-359e1bfcb2d9" method="POST">
+          <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                  <input type="text"name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+              </div>
+              <div class="col-12 col-sm-6">
+                  <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+              </div>
+              <div class="col-12 col-sm-6">
+                  <textarea cols="20" rows="4" type="text" name="message" class="form-control border-0" placeholder="Tell us something" ></textarea>
+              </div>
+            
+              <div class="col-12 col-sm-6">
+                  
+              
+              <div class="col-12">
+                  <button class="btn btn-warning w-100 py-3" type="submit">Book Now</button>
+              </div>
+          </div>
+      </form>  
+     </div>    
+  </div>
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal" > </i></span>
+      <div id="modalProduct" class="product-details">
+        
+        
+      </div>
     </div>
   </div>
-</div>
+  <div class="bg-dark text-light footer pt-5 mt-5">
+  <div class="container p-5">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <h4 class="text-warning mb-4 ">Address</h4>
+        <p class="mb-2">
+          <i class="fa fa-map-marker-alt me-3"></i>123 Street, Nairobi,
+          Kenya
+        </p>
+        <p class="mb-2">
+          <i class="fa fa-phone-alt me-3"></i>+254 7345 67890
+        </p>
+        <p class="mb-2">
+          <i class="fa fa-envelope me-3"></i>karibushop12@gmail.com
+        </p>
+        <div class="d-flex pt-2">
+          <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h4 class=" mb-4 text-warning">Available hours</h4>
+        <h6 class="text-light">Monday - Friday:</h6>
+        <p class="mb-4">09.00PM - 09.00 PM</p>
+        <h6 class="text-light">Saturday - Sunday:</h6>
+        <p class="mb-0">09.00 AM - 12.00 PM</p>
+      </div>
+      <div class="col-lg-4 col-md-6 ">
+        <h4 class="text-warning mb-4">Categories</h4>
+        <div>
+          <a class="btn btn-link text-decoration-none text-white" href="./pages/electronics.html">Electronics </a>
+        </div>
+        
+        <div>
+          <a class="btn btn-link text-decoration-none text-white" href="./pages/jelewery.html">Jewelery</a>
+        </div>
+        <div>
+          <a class="btn btn-link text-decoration-none text-white" href="./pages/womenclothing.html">Women Clothings'</a>
+        </div>
+       <div>
+        <a class="btn btn-link text-decoration-none text-white" href="./pages/mensclothing.html">Mens' Clothings'</a>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="copyright">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy;
+          <a class="border-bottom text-decoration-none text-warning" href="#">karibu shop website</a>, All
+          Right Reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          Designed By
+          <a class="border-bottom text-decoration-none text-warning" href="https://htmlcodex.com"
+            >Isotech -software Company</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    </div>
 
 
- <!-- footer -->
-<div
-class="container-fluid bg-dark text-light footer pt-5 mt-5"
-data-wow-delay="0.1s"
->
-<div class="container p-5">
-  <div class="row g-5">
-    <div class="col-lg-4 col-md-6">
-      <h4 class="text-warning mb-4 ">Address</h4>
-      <p class="mb-2">
-        <i class="fa fa-map-marker-alt me-3"></i>123 Street, Nairobi,
-        Kenya
-      </p>
-      <p class="mb-2">
-        <i class="fa fa-phone-alt me-3"></i>+254 7345 67890
-      </p>
-      <p class="mb-2">
-        <i class="fa fa-envelope me-3"></i>karibushop12@gmail.com
-      </p>
-      <div class="d-flex pt-2">
-        <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
-          ><i class="fab fa-twitter"></i
-        ></a>
-        <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-        <a class="btn btn-outline-light btn-social" href="javascript:void(0)"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-      <h4 class=" mb-4 text-warning">Available hours</h4>
-      <h6 class="text-light">Monday - Friday:</h6>
-      <p class="mb-4">09.00PM - 09.00 PM</p>
-      <h6 class="text-light">Saturday - Sunday:</h6>
-      <p class="mb-0">09.00 AM - 12.00 PM</p>
-    </div>
-    <div class="col-lg-4 col-md-6 ">
-      <h4 class="text-warning mb-4">Categories</h4>
-      <div>
-        <a class="btn btn-link text-decoration-none text-white" href="./pages/electronics.html">Electronics </a>
-      </div>
-      
-      <div>
-        <a class="btn btn-link text-decoration-none text-white" href="./pages/jelewery.html">Jewelery</a>
-      </div>
-      <div>
-        <a class="btn btn-link text-decoration-none text-white" href="./pages/womenclothing.html">Women Clothings'</a>
-      </div>
-     <div>
-      <a class="btn btn-link text-decoration-none text-white" href="./pages/mensclothing.html">Mens' Clothings'</a>
-     </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="copyright">
-    <div class="row">
-      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-        &copy;
-        <a class="border-bottom text-decoration-none text-warning" href="#">karibu shop website</a>, All
-        Right Reserved.
-      </div>
-      <div class="col-md-6 text-center text-md-end">
-        Designed By
-        <a class="border-bottom text-decoration-none text-warning" href="https://htmlcodex.com"
-          >Isotech -software Company</a
-        >
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
     <script src="./script/main.js"></script>
   </body>
