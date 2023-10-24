@@ -193,7 +193,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 40px;
     max-width: 450px; /* Adjust the max-width to control the modal size */
     /* text-align: center; */
   }
@@ -219,9 +219,6 @@ body{
 }
 
   
-
-
-
 
 
 #header-carousel img {
@@ -281,8 +278,8 @@ img {
     position: fixed;
   top: 0;
   width: 100%;
-  z-index: 80;
-  opacity: 0.8;
+  z-index: 1;
+  /* opacity: 0.8; */
 }
 
 .modalProduct{
