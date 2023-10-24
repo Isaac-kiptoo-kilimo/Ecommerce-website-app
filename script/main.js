@@ -23,12 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cart1.classList.remove('cart-active');
   });
 
-  // newCart.addEventListener('click',()=>{
-    
-  //   mainContain.style.display='none'
-  //   containerCart.style.display='block';
 
-  // })
   function updateCart() {
     cartDisplay.querySelector('.display-orders').innerHTML = '';
 
